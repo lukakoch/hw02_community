@@ -4,8 +4,10 @@ from .models import Post, Group
 
 from django.conf import settings
 
+
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:settings.MAX_POSTS]
+    posts = Post.objects.order_by('-pub_date')\
+                        [:settings.MAX_POSTS]
     context = {
         'posts': posts,
         'text_title': 'Последние обновления на сайте',
@@ -15,7 +17,8 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:settings.MAX_POSTS]
+    posts = Post.objects.filter(group=group).order_by\
+                ('-pub_date')[:settings.MAX_POSTS]
     context = {
         'group': group,
         'posts': posts,
