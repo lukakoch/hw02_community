@@ -6,7 +6,7 @@ from django.conf import settings
 
 def index(request):
     posts = Post.objects.order_by(
-            '-pub_date'
+        '-pub_date'
     )[:settings.MAX_POSTS]
     context = {
         'posts': posts,
