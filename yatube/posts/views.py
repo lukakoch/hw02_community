@@ -10,7 +10,7 @@ def index(request):
     )[:settings.MAX_POSTS]
     context = {
         'posts': posts,
-        }
+    }
     return render(request, 'posts/index.html', context)
 
 
