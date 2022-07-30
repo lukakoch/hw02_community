@@ -9,8 +9,7 @@ def index(request):
         '-pub_date'
     )[:settings.MAX_POSTS]
     context = {
-        'posts': posts,
-        'text_title': 'Последние обновления на сайте',
+        'posts': posts,        
     }
     return render(request, 'posts/index.html', context)
 
@@ -25,6 +24,5 @@ def group_posts(request, slug):
     context = {
         'group': group,
         'posts': posts,
-        'text_title': 'Записи сообщества',
     }
     return render(request, 'posts/group_list.html', context)
