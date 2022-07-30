@@ -9,8 +9,8 @@ def index(request):
         '-pub_date'
     )[:settings.MAX_POSTS]
     context = {
-        'posts': posts,        
-    }
+        'posts': posts,
+        }
     return render(request, 'posts/index.html', context)
 
 
